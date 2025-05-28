@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { JobList } from './components/JobList';
 import { JobDetails } from './components/JobDetails';
+import { NavLink } from "react-router";
 
 const App = () => {
   const [selectedJob, setSelectedJob] = useState<any>(null);
@@ -14,7 +15,11 @@ const App = () => {
           <h1 className="text-3xl font-bold text-gray-800">🧑‍💻 Blockchain Job Board</h1>
           <ConnectButton />
         </div>
+        <div className="flex justify-between items-center gap-5">
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="/Jobs">Job roles</NavLink>
 
+        </div>
         <div className="bg-white shadow rounded-xl p-6">
           {selectedJob ? (
             <JobDetails job={selectedJob} onBack={() => setSelectedJob(null)} />
