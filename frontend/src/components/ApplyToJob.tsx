@@ -19,32 +19,50 @@ const ApplyToJob: React.FC<Props> = ({ jobId }) => {
   };
 
   return (
-    <div style={{ marginTop: 40 }}>
-      <h2>Apply to Job #{jobId}</h2>
+    <div className="max-w-lg mx-auto mt-10 p-6 bg-white shadow-lg rounded-xl border border-gray-200">
+      <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
+        Apply to Job #{jobId}
+      </h2>
 
       <input
+        type="text"
         placeholder="GitHub Profile URL"
         value={github}
         onChange={(e) => setGithub(e.target.value)}
-        style={{ padding: 8, width: '100%', marginBottom: 10 }}
+        className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
+
       <textarea
         placeholder="Why should they hire you?"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        style={{ padding: 8, width: '100%', marginBottom: 10 }}
+        rows={5}
+        className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
 
       <button
         onClick={handleApply}
         disabled={isPending}
-        style={{ padding: 10, background: '#0070f3', color: '#fff' }}
+        className={`w-full py-3 rounded-lg text-white font-semibold transition ${
+          isPending
+            ? 'bg-blue-300 cursor-not-allowed'
+            : 'bg-blue-600 hover:bg-blue-700'
+        }`}
       >
         {isPending ? 'Applying...' : 'Apply'}
       </button>
 
-      {isSuccess && <p>✅ Applied Successfully!</p>}
-      {error && <p style={{ color: 'red' }}>❌ {(error as Error).message}</p>}
+      {isSuccess && (
+        <p className="text-green-600 mt-4 text-center font-medium">
+          ✅ Applied Successfully!
+        </p>
+      )}
+
+      {error && (
+        <p className="text-red-600 mt-4 text-center font-medium">
+          ❌ {(error as Error).message}
+        </p>
+      )}
     </div>
   );
 };

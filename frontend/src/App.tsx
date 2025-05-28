@@ -15,9 +15,9 @@ const App = () => {
           <h1 className="text-3xl font-bold text-gray-800">🧑‍💻 Blockchain Job Board</h1>
           <ConnectButton />
         </div>
-        <div className="flex justify-between items-center gap-5">
+        <div className="flex justify-center items-center gap-5 mb-10">
                 <NavLink to="/">Home</NavLink>
-                <NavLink to="/Jobs">Job roles</NavLink>
+                <NavLink to="/jobs">Job roles</NavLink>
 
         </div>
         <div className="bg-white shadow rounded-xl p-6">
