@@ -31,6 +31,7 @@ const ApplicantsPage: React.FC = () => {
       <div className="grid gap-6">
         {applicants.map((applicant: any, index: number) => (
           <div
+            onClick={() => navigate(`/hire/${parsedJobId}?developer=${applicant.developer}`)}
             key={index}
             className="bg-white p-6 rounded-xl shadow border border-gray-200"
           >

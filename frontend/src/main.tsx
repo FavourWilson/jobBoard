@@ -13,6 +13,7 @@ import ApplyToJobPage from './pages/ApplyToJobPage.tsx';
 import PostJobPage from './components/PostJob';
 import { AllJobsPage } from './pages/AllJobsPage.tsx';
 import ApplicantsPage from './pages/ApplicantsPage.tsx';
+import { HireDeveloperPage } from './pages/HireDeveloperPage.tsx';
 
 const chains = [sepolia] as const;
 
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
   { path: '/jobs/:jobId/applicants', element: <ApplicantsPage /> },
   { path: '/post', element: <PostJobPage /> },
   { path: '/apply/:jobId', element: <ApplyToJobPage /> }, 
+  { path: '/hire/:jobId', element: <HireDeveloperPage /> }, 
 ]);
 
 createRoot(document.getElementById('root')!).render(
